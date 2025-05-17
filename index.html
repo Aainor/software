@@ -81,5 +81,39 @@
   <footer>
     <p>&copy;2025 Mudanzas Movix. Todos los derechos reservados.</p>
   </footer>
+
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
+
+<script>
+
+  const supabaseUrl = 'https://brexbmiqqrudnslkwawi.supabase.co/';
+  const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImJyZXhibWlxcXJ1ZG5zbGt3YXdpIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDc0Mzk0NjcsImV4cCI6MjA2MzAxNTQ2N30.g6M1eL5n-d9XPkWpFBz81SKG9GMNn_gHFQlBsVlN3Q4';
+  const supabase = supabase.createClient(supabaseUrl, supabaseKey);
+
+ 
+  async function cargarPersonas() {
+    const { data, error } = await supabase
+      .from('personas')
+      .select('*');
+
+    if (error) {
+      console.error('Error cargando datos:', error);
+      return;
+    }
+
+  
+    const lista = document.createElement('ul');
+    data.forEach(persona => {
+      const item = document.createElement('li');
+      item.textContent = `${persona.nombre}, ${persona.edad} años, ${persona.ciudad}`;
+      lista.appendChild(item);
+    });
+    document.body.appendChild(lista);
+  }
+
+  cargarPersonas();
+</script>
+
 </body>
 </html>
