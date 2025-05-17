@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Movix</title>
+  <link rel="shortcut icon" href="./imagenes/camion.ico" type="image/x-icon">
+  <link rel="stylesheet" href="/tp software2/style.css">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Cabin&display=swap');
+  </style>
+</head>
+<body>
+  
+  <header>
+    <div class="logo">
+      <img src="/tp software2/imagenes/camion.ico" alt="Logo">
+      <h3 class="titulo">Mudanzas Movix</h3>
+    </div>
+    <nav>
+      <a class="active" href="/tp software2/index.html">Inicio</a>
+    </nav>
+  </header>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Formulario de Mudanzas</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      padding: 20px;
+    }
+
+    .formulario {
+      background-color: #fff;
+      padding: 25px;
+      border-radius: 10px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .formulario h2 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .formulario label {
+      display: block;
+      margin-top: 15px;
+    }
+
+    .formulario input, 
+    .formulario textarea,
+    .formulario select {
+      width: 100%;
+      padding: 10px;
+      margin-top: 5px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+
+    .formulario button {
+      margin-top: 20px;
+      width: 100%;
+      padding: 12px;
+      background-color: #28a745;
+      border: none;
+      color: white;
+      font-size: 16px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .formulario button:hover {
+      background-color: #218838;
+    }
+  </style>
+</head>
+<body>
+
+  <form class="formulario" action="procesar_formulario.php" method="POST">
+    <h2>Solicitud de Mudanza</h2>
+
+    <label for="nombre">Nombre completo:</label>
+    <input type="text" id="nombre" name="nombre" required>
+
+    <label for="telefono">Teléfono:</label>
+    <input type="tel" id="telefono" name="telefono" required>
+
+    <label for="email">Correo electrónico:</label>
+    <input type="email" id="email" name="email" required>
+
+    <label for="origen">Dirección de origen:</label>
+    <input type="text" id="origen" name="origen" required>
+
+    <label for="destino">Dirección de destino:</label>
+    <input type="text" id="destino" name="destino" required>
+
+    <label for="fecha">Fecha de la mudanza:</label>
+    <input type="date" id="fecha" name="fecha" required>
+
+    <label for="tipo">Tipo de vivienda:</label>
+    <select id="tipo" name="tipo" required>
+      <option value="">Seleccione</option>
+      <option value="departamento">Departamento</option>
+      <option value="casa">Casa</option>
+      <option value="oficina">Oficina</option>
+    </select>
+
+    <label for="detalles">Detalles adicionales:</label>
+    <textarea id="detalles" name="detalles" rows="4" placeholder="Ejemplo: cantidad de muebles, si hay ascensor, etc."></textarea>
+
+    <button type="submit">Enviar solicitud</button>
+  </form>
+
+</body>
+</html>
