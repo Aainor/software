@@ -1,5 +1,5 @@
 :root {
-    --bgcolor: #2E4053;
+    --bgcolor: #0a2345;
     --textcolor: #EAECEE;
     --greencolor: #28B463;
   }
@@ -36,6 +36,14 @@ header {
     background-color: var(--bgcolor);
     padding: 0 1em;
   }
+
+.headerText {
+    --textcolor: #949494;
+}
+
+header nav a:hover{
+    color: white;
+}
   
 .logo {
     display: flex;
