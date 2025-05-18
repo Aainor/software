@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Inicio</title>
+</head>
+<body>
+  <h1>Bienvenido</h1>
+  <a href="login.html">Iniciar sesión</a><br>
+  <a href="register.html">Registrarse</a><br>
+  <button onclick="googleLogin()">Conectarse con Google</button>
+  <a href="/software/index.html">Regresar al Inicio</a>
+
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.11.0/firebase-app.js";
+    import { getAuth, signInWithPopup, GoogleAuthProvider } from "https://www.gstatic.com/firebasejs/10.11.0/firebase-auth.js";
+    import { firebaseConfig } from './firebase-config.js';
+    
+    const app = initializeApp(firebaseConfig);
+    const auth = getAuth(app);
+
+    window.googleLogin = async () => {
+      const provider = new GoogleAuthProvider();
+      try {
+        await signInWithPopup(auth, provider);
+        window.location.href = "home.html";
+      } catch (error) {
+        alert("Error al iniciar con Google: " + error.message);
+      }
+    };
+  </script>
+</body>
+</html>

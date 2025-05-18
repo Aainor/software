@@ -21,7 +21,9 @@
     <nav class="headerText">
       <a class="active" href="#">Inicio</a>
       <a href="#sobre-nosotros">Sobre Nosotros</a>
-      <a href="./paginas/form.html">Formulario</a> 
+      <a id="formulario-link" href="./paginas/form.html" style="display: none;">Formulario</a>
+      <a id="acceso-link" href="./paginas/baba-main/index.html">Acceder</a>
+      <a id="cerrar-sesion" href="#" style="display: none;">Cerrar sesión</a>
     </nav>
   </header>
 
@@ -82,37 +84,31 @@
     <p>&copy;2025 Mudanzas Movix. Todos los derechos reservados.</p>
   </footer>
 
-
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
-
 <script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const estaLogueado = localStorage.getItem('usuarioLogueado') === 'true';
+    const formularioLink = document.getElementById('formulario-link');
+    const accesoLink = document.getElementById('acceso-link');
+    const cerrarSesionLink = document.getElementById('cerrar-sesion');
 
-  const supabaseUrl = 'https://brexbmiqqrudnslkwawi.supabase.co/';
-  const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImJyZXhibWlxcXJ1ZG5zbGt3YXdpIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDc0Mzk0NjcsImV4cCI6MjA2MzAxNTQ2N30.g6M1eL5n-d9XPkWpFBz81SKG9GMNn_gHFQlBsVlN3Q4';
-  const supabase = supabase.createClient(supabaseUrl, supabaseKey);
-
- 
-  async function cargarPersonas() {
-    const { data, error } = await supabase
-      .from('personas')
-      .select('*');
-
-    if (error) {
-      console.error('Error cargando datos:', error);
-      return;
+    if (estaLogueado) {
+      formularioLink.style.display = 'inline-block';
+      accesoLink.textContent = 'Mi cuenta';
+      accesoLink.href = './paginas/perfil.html'; // Falta crear esta cuenta
+      cerrarSesionLink.style.display = 'inline-block';
+      
+      cerrarSesionLink.addEventListener('click', (e) => {
+        e.preventDefault();
+        localStorage.removeItem('usuarioLogueado');
+        location.reload();
+      });
+    } else {
+      formularioLink.style.display = 'none';
+      accesoLink.textContent = 'Acceder';
+      accesoLink.href = './paginas/baba-main/index.html';
+      cerrarSesionLink.style.display = 'none';
     }
-
-  
-    const lista = document.createElement('ul');
-    data.forEach(persona => {
-      const item = document.createElement('li');
-      item.textContent = `${persona.nombre}, ${persona.edad} años, ${persona.ciudad}`;
-      lista.appendChild(item);
-    });
-    document.body.appendChild(lista);
-  }
-
-  cargarPersonas();
+  });
 </script>
 
 </body>

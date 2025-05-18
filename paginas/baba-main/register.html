@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Registro</title>
+</head>
+<body>
+  <h1>Registrarse</h1>
+  <form id="register-form">
+    Email: <input type="email" id="email"><br>
+    Contraseña: <input type="password" id="password"><br>
+    <button type="submit">Crear cuenta</button>
+  </form>
+  <p id="error-msg" style="color:red;"></p>
+  <a href="login.html">Iniciar sesión</a>
+  <a href="/software/index.html">Regresar al Inicio</a>
+
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.11.0/firebase-app.js";
+    import { getAuth, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.11.0/firebase-auth.js";
+    import { firebaseConfig } from './firebase-config.js';
+
+    const app = initializeApp(firebaseConfig);
+    const auth = getAuth(app);
+
+    document.getElementById("register-form").addEventListener("submit", async (e) => {
+      e.preventDefault();
+      const email = document.getElementById("email").value;
+      const password = document.getElementById("password").value;
+      try {
+        await createUserWithEmailAndPassword(auth, email, password);
+        window.location.href = "home.html";
+      } catch (error) {
+        document.getElementById("error-msg").textContent = "Error: " + error.message;
+      }
+    });
+  </script>
+</body>
+</html>

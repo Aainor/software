@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Login</title>
+</head>
+<body>
+  <h1>Iniciar sesión</h1>
+  <form id="login-form">
+    Email: <input type="email" id="email"><br>
+    Contraseña: <input type="password" id="password"><br>
+    <button type="submit">Entrar</button>
+  </form>
+  <p id="error-msg" style="color:red;"></p>
+  <a href="register.html">Registrarse</a>
+    <a href="/software/index.html">Regresar al Inicio</a>
+
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.11.0/firebase-app.js";
+    import { getAuth, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.11.0/firebase-auth.js";
+    import { firebaseConfig } from './firebase-config.js';
+
+    const app = initializeApp(firebaseConfig);
+    const auth = getAuth(app);
+
+    document.getElementById("login-form").addEventListener("submit", async (e) => {
+      e.preventDefault();
+      const email = document.getElementById("email").value;
+      const password = document.getElementById("password").value;
+      try {
+        await signInWithEmailAndPassword(auth, email, password);
+        window.location.href = "home.html";
+      } catch (error) {
+        document.getElementById("error-msg").textContent = "Error: " + error.message;
+      }
+    });
+  </script>
+</body>
+</html>
