@@ -27,40 +27,38 @@
     </nav>
   </header>
 
-  <main>
-    <section class="principal">
-      <div class="container">
-        <!-- Carrusel de imagenes -->
-            <div class="wrapper">
-                <div class="carousel-item">
-                    <img class="slide-img" src="./imagenes/img1.jpg" alt="Cajas en una Van">
-                </div>
-                <div class="carousel-item">
-                    <img class="slide-img" src="./imagenes/img2.jpg" alt="Empleada cargando una caja y completando un formulario">
-                </div>
-                <div class="carousel-item">
-                    <img class="slide-img" src="./imagenes/img3.jpg" alt="Cliente organizando las cajas a retirar">
-                </div>
-                <div class="carousel-item">
-                    <img class="slide-img" src="./imagenes/img4.jpg" alt="Trabajadores trasladando las pertenencias del cliente">
-                </div>
-            </div>
-  
-
-          <div class="content-principal">
-            <h1>Mudanzas Rápidas</h1>
-            <p>En Movix, te ayudamos a mudarte sin estrés. Brindamos soluciones ágiles, seguras y accesibles para que puedas trasladar tus cosas a donde las necesites, con total confianza.</p>
-          </div>
+<main>
+  <section class="principal">
+    <div class="container">
+      <div class="wrapper">
+        <div class="carousel-item">
+          <img class="slide-img" src="./imagenes/img1.jpg" alt="Cajas en una Van">
+        </div>
+        <div class="carousel-item">
+          <img class="slide-img" src="./imagenes/img2.jpg" alt="Empleada cargando una caja y completando un formulario">
+        </div>
+        <div class="carousel-item">
+          <img class="slide-img" src="./imagenes/img3.jpg" alt="Cliente organizando las cajas a retirar">
+        </div>
+        <div class="carousel-item">
+          <img class="slide-img" src="./imagenes/img4.jpg" alt="Trabajadores trasladando las pertenencias del cliente">
+        </div>
       </div>
-    </section>
 
+      <div class="content-principal">
+        <h1>Mudanzas Rápidas</h1>
+        <p>En Movix, te ayudamos a mudarte sin estrés. Brindamos soluciones ágiles, seguras y accesibles para que puedas trasladar tus cosas a donde las necesites, con total confianza.</p>
+      </div>
+    </div>
+  </section>
+</main>
  
 <div class="sobre-nosotros-texto" id="sobre-nosotros">
   <h2>Conocé Nuestros Servicios</h2>
 
   <div class="servicio">
-    <img src="imagenes/1.png" alt="Mudanzas Residenciales" width="800" height="250">
-    <div>
+    <img src="imagenes/1.png" alt="Mudanzas Residenciales">
+    <div class="servicio-contenido">
       <h3>Mudanzas Residenciales</h3>
       <p>
         Nos encargamos de principio a fin para que no tengas que preocuparte por nada: embalamos cada objeto con cuidado, transportamos tus pertenencias de forma segura y descargamos todo en tu nuevo hogar. Ya sea que te mudes de casa, departamento o estés reorganizando tu vida, te ofrecemos un servicio personalizado, puntual y eficiente para que tu mudanza sea lo más liviana posible.
@@ -69,8 +67,8 @@
   </div>
 
   <div class="servicio">
-    <img src="imagenes/2.png" alt="Almacenamiento temporal" width="800" height="250">
-    <div>
+    <img src="imagenes/2.png" alt="Almacenamiento temporal">
+    <div class="servicio-contenido">
       <h3>Almacenamiento Temporal</h3>
       <p>
         ¿Necesitás un lugar seguro para guardar tus cosas por un tiempo? Contamos con un depósito privado y vigilado donde cada caja se almacena sellada y etiquetada, manteniendo tus pertenencias limpias y protegidas. Ideal si estás en plena remodelación, viajás por un tiempo, o simplemente necesitás liberar espacio sin desprenderte de tus objetos.
@@ -79,8 +77,8 @@
   </div>
 
   <div class="servicio">
-    <img src="imagenes/3.png" alt="Transporte de cargas parciales" width="800" height="250">
-    <div>
+    <img src="imagenes/3.png" alt="Transporte de cargas parciales">
+    <div class="servicio-contenido">
       <h3>Transporte de Cargas Parciales</h3>
       <p>
         ¿Necesitás un lugar seguro para guardar tus cosas por un tiempo? Contamos con un depósito privado y vigilado donde cada caja se almacena sellada y etiquetada, manteniendo tus pertenencias limpias y protegidas. Ideal si estás en plena remodelación, viajás por un tiempo, o simplemente necesitás liberar espacio sin desprenderte de tus objetos.
@@ -113,7 +111,7 @@
     if (estaLogueado) {
       formularioLink.style.display = 'inline-block';
       accesoLink.textContent = 'Mi cuenta';
-      accesoLink.href = './paginas/perfil.html'; // Falta crear esta cuenta
+      accesoLink.href = './paginas/perfil.html'; // Falta crear esta pagina
       cerrarSesionLink.style.display = 'inline-block';
       
       cerrarSesionLink.addEventListener('click', (e) => {
